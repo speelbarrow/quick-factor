@@ -12,5 +12,5 @@ This program can be installed two different ways:
 - Run the program by running `find-factors` on the command line
 
 ### 2. Without Golang installed
-- Navigate to the [releases](https://github.com/noah-friedman/noahfriedman.ca/releases) page
+- Navigate to the [releases](https://github.com/noah-friedman/quick-factor/releases) page
 - Download the correct binary for your system from the latest release and run it
