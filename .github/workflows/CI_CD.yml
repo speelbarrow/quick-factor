@@ -72,5 +72,5 @@ jobs:
         with:
           upload_url: ${{ needs.create_release.outputs.upload_url }}
           asset_path: ./quick-factor-${{ matrix.os }}-${{ matrix.arch }}${{ steps.exe.outputs.exe }}
-          asset_name: ${{ matrix.os }}${{ matrix.arch }}
+          asset_name: quick-factor-${{ matrix.os }}-${{ matrix.arch }}${{ steps.exe.outputs.exe }}
           asset_content_type: application/octet-stream
