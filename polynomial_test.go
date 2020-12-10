@@ -3,6 +3,7 @@ package main
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	"math"
 	"math/rand"
 )
 
@@ -11,7 +12,7 @@ var _ = Describe("the Polynomial type's methods", func() {
 
 	Describe("the Degree method", func() {
 		It("should return the length of the array - 1", func() {
-			By("creating a new Polynomial with a length between 2 and 10")
+			By("creating a Polynomial with a length between 2 and 10")
 			p := Polynomial{}
 
 			l := rand.Intn(8) + 2
@@ -19,8 +20,29 @@ var _ = Describe("the Polynomial type's methods", func() {
 				p = append(p, float64(i))
 			}
 
-			By("checking that the method returns the correct value")
 			Expect(p.Degree()).To(Equal(l - 1))
+		})
+	})
+	Describe("the F method", func() {
+		It("should return the function value with the given 'x' value", func() {
+			By("generating a 2 - 5 term polynomial")
+			p := Polynomial{}
+
+			l := rand.Intn(3) + 2
+			for i := 1; i <= l; i++ {
+				p = append(p, float64(rand.Intn(9)+1))
+			}
+
+			By("using a randomly generated 'x' value")
+			x := float64(rand.Intn(2999)+1) / 100
+
+			By("calculating the expected value")
+			var expected float64
+			for i, v := range p {
+				expected += v * math.Pow(x, float64(i))
+			}
+
+			Expect(p.F(x)).To(Equal(expected))
 		})
 	})
 })
