@@ -1,4 +1,4 @@
-# Quick Factor
+# Quick Factor [![CI/CD](https://github.com/noah-friedman/quick-factor/workflows/CI/CD/badge.svg)](https://github.com/noah-friedman/quick-factor/actions?query=workflow%3ACI%2FCD) [![Go Reference](https://pkg.go.dev/badge/github.com/noah-friedman/quick-factor.svg)](https://pkg.go.dev/github.com/noah-friedman/quick-factor)
 
 Command-line tool to find factors of a polynomial function.
 
