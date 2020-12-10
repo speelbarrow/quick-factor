@@ -11,7 +11,7 @@ jobs:
   test:
     name: Run tests
     runs-on: ubuntu-latest
-    if: contains(github.ref, 'refs/tags') || (!contains(github.event.head_commit.message, '[skip ci/cd]') && !contains(github.event.head_commit.message, '[skip all]'))
+    if: contains(github.ref, 'refs/tags') || (!contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[skip all]'))
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -37,8 +37,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag-name: ${{ steps.release_name.outputs.release_name }}
-          release-name: ${{ steps.release_name.outputs.release_name }}
+          tag_name: ${{ steps.release_name.outputs.release_name }}
+          release_name: ${{ steps.release_name.outputs.release_name }}
           draft: false
           prerelease: ${{ contains(github.ref, '/v0.') }}
   upload_assets:
@@ -61,12 +61,12 @@ jobs:
         run: GOOS=${{ matrix.os }} GOARCH=${{ matrix.arch }} go build -o quick-factor-${{ matrix.os }}-${{ matrix.arch }}
       - name: Add '.exe' extension
         id: exe
-        if: ${{ matrix.os }} == 'windows'
+        if: matrix.os == 'windows'
         run: |
           mv quick-factor-windows-${{ matrix.arch }} quick-factor-windows-${{ matrix.arch }}.exe
           echo "::set-output name=exe::.exe"
       - name: Upload asset
-        uses: actions/upload-release-asset@v2
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
