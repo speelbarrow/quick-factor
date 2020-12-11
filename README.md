@@ -13,4 +13,6 @@ This program can be installed two different ways:
 
 ### 2. Without Golang installed
 - Navigate to the [releases](https://github.com/noah-friedman/quick-factor/releases) page
-- Download the correct binary for your system from the latest release and run it
+- Download the correct binary for your system from the latest release
+- **macOS and Linux only**: Run `chmod +x path/to/binary` in order to mark the binary as executable
+- Run the executable file
