@@ -11,7 +11,7 @@ var _ = Describe("the Polynomial type's methods", func() {
 	rand.Seed(GinkgoRandomSeed())
 
 	Describe("the Degree method", func() {
-		It("should return the length of the array - 1", func() {
+		It("should return the degree of the polynomial", func() {
 			By("creating a Polynomial with a length between 2 and 10")
 			p := Polynomial{}
 
@@ -21,6 +21,12 @@ var _ = Describe("the Polynomial type's methods", func() {
 			}
 
 			Expect(p.Degree()).To(Equal(l - 1))
+		})
+		It("should not acknowledge highest indices with values of 0", func() {
+			By("creating a Polynomial with highest indices at 0")
+			p := Polynomial{3, 2, 1, 0, 0, 0}
+
+			Expect(p.Degree()).To(Equal(2))
 		})
 	})
 	Describe("the F method", func() {

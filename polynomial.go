@@ -16,7 +16,13 @@ type Polynomial []float64
 
 // Returns the degree (highest exponent) of the polynomial function.
 func (p *Polynomial) Degree() int {
-	return len(*p) - 1
+	for i := len(*p) - 1; i > 0; i-- {
+		if (*p)[i] != 0 {
+			return i
+		}
+	}
+
+	return 0
 }
 
 // Find the value of the polynomial function using the provided 'x' value.
