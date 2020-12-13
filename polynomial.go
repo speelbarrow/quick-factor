@@ -1,5 +1,5 @@
 // Define the Polynomial type and its methods.
-package main
+package quickFactor
 
 import "math"
 

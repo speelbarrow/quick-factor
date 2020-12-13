@@ -1,4 +1,4 @@
-package main
+package quickFactor
 
 import (
 	. "github.com/onsi/ginkgo"

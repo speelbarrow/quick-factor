@@ -1,5 +1,5 @@
 // Define types and functions related to factoring.
-package main
+package quickFactor
 
 import (
 	"fmt"
