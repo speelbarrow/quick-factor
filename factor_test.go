@@ -23,6 +23,7 @@ var _ = Describe("the Factor function", func() {
 		Expect(f.XIntercepts).To(ContainElements(-2., -5.))
 	})
 	It("should be able to factor trinomial functions using the quadratic formula", func() {
+		By("using a factorable trinomial")
 		p := Polynomial{-14, 5, 1}
 		f := Factor(p, 2)
 
@@ -33,6 +34,14 @@ var _ = Describe("the Factor function", func() {
 
 		Expect(f.XIntercepts).To(HaveLen(2))
 		Expect(f.XIntercepts).To(ContainElements(2., -7.))
+
+		By("using a partially factorable trinomial")
+		p = Polynomial{10, 2, 1}
+		f = Factor(p, 2)
+
+		Expect(f.Unfactored).To(Equal(p))
+
+		Expect(f.Raw).To(Equal("(x - ((-2 + √-36) / 2))(x - ((-2 - √-36) / 2))"))
 	})
 	It("should factor a longer polynomial function", func() {
 		p := Polynomial{1, -4, 0, 7, 2}
