@@ -1,5 +1,7 @@
 # CHANGELOG
 
+### v0.1.0
+
 ### v0.0.3
 - Add [examples](https://github.com/noah-friedman/quick-factor/blob/v0.0.3/factor_examples_test.go) for the Factor function
 - Update [tests](https://github.com/noah-friedman/quick-factor/blob/v0.0.3/factor_test.go) for the Factor function  
