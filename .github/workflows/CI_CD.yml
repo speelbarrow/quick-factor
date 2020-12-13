@@ -35,7 +35,11 @@ jobs:
         run: |
           RELEASE_NAME=$(echo '${{ github.ref }}' | sed s#refs/tags/##g)
           echo "::set-output name=name::$RELEASE_NAME"
-          echo "::set-output name=body::$(cat CHANGELOG.md | sed -n "/${RELEASE_NAME//./\.}/,/^$/p" | sed 1d)"
+          BODY="::set-output name=body::$(cat CHANGELOG.md | sed -n "/${RELEASE_NAME//./\.}/,/^$/p" | sed 1d)"
+          BODY="${BODY//'%'/'%25'}"
+          BODY="${BODY//$'\n'/'%0A'}"
+          BODY="${BODY//$'\r'/'%0D'}"
+          echo $BODY
       - name: Create new release
         id: release
         uses: actions/create-release@v1
