@@ -69,7 +69,7 @@ jobs:
       - name: Setup Go 1.15
         uses: actions/setup-go@v2
       - name: Build binary
-        run: GOOS=${{ matrix.os }} GOARCH=${{ matrix.arch }} go build -o quick-factor-${{ matrix.os }}-${{ matrix.arch }}-${{ needs.create_release.outputs.release_name }}
+        run: GOOS=${{ matrix.os }} GOARCH=${{ matrix.arch }} go build -o quick-factor-${{ matrix.os }}-${{ matrix.arch }}-${{ needs.create_release.outputs.release_name }} ./cmd/quick-factor/
       - name: Add '.exe' extension
         id: exe
         if: matrix.os == 'windows'
