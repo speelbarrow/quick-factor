@@ -1,6 +1,7 @@
 # CHANGELOG
 
-### v0.1.0
+### v1.0.0
+- Add a [functional command line interface](https://github.com/noah-friedman/quick-factor/blob/v0.1.0/cmd/quick-factor/main.go)
 
 ### v0.0.3
 - Add [examples](https://github.com/noah-friedman/quick-factor/blob/v0.0.3/factor_examples_test.go) for the Factor function
